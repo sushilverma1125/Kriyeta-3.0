@@ -1,1 +1,1 @@
-## KRIYETA 3.0 Hackathon
+# KRIYETA 3.0 Hackathon
