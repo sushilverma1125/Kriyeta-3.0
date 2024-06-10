@@ -137,6 +137,10 @@ main {
     top: 5.4rem;
 }
 
+.logo{
+    width: 12%;
+}
+
 main .container {
     display: grid;
     grid-template-columns: 18vw auto  20vw;
