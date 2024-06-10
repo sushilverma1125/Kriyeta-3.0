@@ -356,26 +356,165 @@ main .container .left .profile {
 }
 
 /* =============== Create Post ============== */
-.middle .create-post {
-    width: 100%;
+
+.create {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 1rem;
-    background: var(--color-white);
-    padding: 0.4rem var(--card-padding);
-    border-radius: var(--border-radius);
+    margin-bottom: 16px;
 }
 
-.middle .create-post input[type="text"] {
+
+
+.profile-photo {
+    margin-left: 10px;
+}
+
+.notification {
+    margin-left: 10px;
+}
+
+.create-post-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    justify-self: start;
-    padding-left: 1rem;
-    background: transparent;
-    color: var(--color-dark);
-    margin-right: 1rem;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;  /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
+.create-post {
+    width: 500px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 40px; /* Offset for close button */
+}
+
+.user-info {
+    margin-left: 10px;
+}
+
+.username {
+    display: block;
+    font-weight: bold;
+}
+
+.audience-selector {
+    position: relative;
+    cursor: pointer;
+}
+
+.audience-selector .dropdown {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.audience-selector:hover .dropdown {
+    display: block;
+}
+
+.audience-selector .dropdown span {
+    display: block;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.audience-selector .dropdown span:hover {
+    background: #f0f2f5;
+}
+
+.post-input {
+    width: 100%;
+    border: none;
+    resize: none;
+    height: 100px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.post-input:focus {
+    outline: none;
+}
+
+.image-upload {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.image-upload-label {
+    display: inline-block;
+    background-color: #1877f2;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.image-upload-input {
+    display: none;
+}
+
+.image-name {
+    font-size: 14px;
+    color: #555;
+}
+
+.post-button {
+    width: 100%;
+    padding: 10px;
+    background: #1877f2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 16px;
+}
+
+.post-button:disabled {
+    background: #b0b3b8;
+    cursor: not-allowed;
+}
 /* =============== Feeds ============== */
 .middle .feeds .feed {
     background: var(--color-white);

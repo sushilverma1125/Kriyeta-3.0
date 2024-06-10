@@ -16,23 +16,42 @@
 <body>
     <nav>
         <div class="container">
-            <!-- <h2 class="logo">
-                Saarthi.
-            </h2> -->
             <img src="/static/images/logo.png" alt="" height="50%" width="" class="logo">
             <div class="search-bar">
                 <i class="uil uil-search"></i>
                 <input type="search" placeholder="Search for creators, inspirations, and projects">
             </div>
             <div class="create">
-                <label class="btn btn-primary" for="create-post">Create</label>
-                <a href="form.html"><div class="profile-photo">
-                    <img src="../static/images/icon-1.png" alt="">
-                </div></a>
+                <label class="btn btn-primary" for="create-post" id="create-post-btn">Create</label>
                 <div class="notification">
-                    <img src="../static/images/notification-icon.png" alt="">
+                    <img src="../static/images/notification-icon.png" alt="Notification Icon">
                 </div>
-                
+            </div>
+            <div class="create-post-overlay" id="create-post-overlay">
+                <div class="create-post">
+                    <button class="close-button" id="closeButton">&times;</button>
+                    <div class="header">
+                        <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                        <div class="user-info">
+                            <span class="username">Sushil Verma</span>
+                            <div class="audience-selector">
+                                <span class="audience">Friends</span>
+                                <div class="dropdown">
+                                    <span>Friends</span>
+                                    <span>Public</span>
+                                    <span>Only Me</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <textarea placeholder="What's on your mind, Sushil?" class="post-input"></textarea>
+                    <div class="image-upload">
+                        <label for="imageUpload" class="image-upload-label">Upload Image</label>
+                        <input type="file" id="imageUpload" accept="image/*" class="image-upload-input">
+                        <span class="image-name" id="imageName"></span>
+                    </div>
+                    <button class="post-button" disabled>Post</button>
+                </div>
             </div>
             <!-- <div class="logout" style="background-color: red; border-radius: 50;">
                 <label class="btn btn-danger" for="log-out">Log out</label>
@@ -136,13 +155,8 @@
                     </div>
                 </div>
                 <!----------------- END OF STORIES -------------------->
-                <form action="" class="create-post">
-                    <div class="profile-photo">
-                        <img src="../static/images/profile-1.jpg">
-                    </div>
-                    <input type="text" placeholder="What's on your mind, Diana ?" id="create-post">
-                    <input type="submit" value="Post" class="btn btn-primary">
-                </form>
+
+
                 <!----------------- FEEDS -------------------->
                 <div class="feeds">
                     <!----------------- FEED 1 -------------------->
@@ -511,12 +525,6 @@
                     <div class="search-bar">
                         <i class="uil uil-search"></i>
                         <input type="search" placeholder="Search messages" id="message-search">
-                    </div>
-                    <!------- MESSAGES CATEGORY ------->
-                    <div class="category">
-                        <h6 class="active">Primary</h6>
-                        <h6>General</h6>
-                        <h6 class="message-requests">Requests (7)</h6>
                     </div>
                     <!------- MESSAGES ------->
                     <div class="message">
@@ -914,6 +922,48 @@ Bg3.addEventListener('click', () => {
     Bg2.classList.remove('active');
     changeBG();
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const postInput = document.querySelector('.post-input');
+    const postButton = document.querySelector('.post-button');
+    const imageUploadInput = document.getElementById('imageUpload');
+    const imageName = document.getElementById('imageName');
+    const closeButton = document.getElementById('closeButton');
+    const createPostOverlay = document.getElementById('create-post-overlay');
+    const createPostBtn = document.getElementById('create-post-btn');
+
+    postInput.addEventListener('input', togglePostButton);
+    imageUploadInput.addEventListener('change', handleImageUpload);
+    closeButton.addEventListener('click', closeCreatePostOverlay);
+    createPostBtn.addEventListener('click', openCreatePostOverlay);
+
+    function togglePostButton() {
+        if (postInput.value.trim() !== '' || imageUploadInput.files.length > 0) {
+            postButton.disabled = false;
+        } else {
+            postButton.disabled = true;
+        }
+    }
+
+    function handleImageUpload() {
+        const file = imageUploadInput.files[0];
+        if (file) {
+            imageName.textContent = file.name;
+            togglePostButton();
+        } else {
+            imageName.textContent = '';
+            togglePostButton();
+        }
+    }
+
+    function closeCreatePostOverlay() {
+        createPostOverlay.style.display = 'none';
+    }
+
+    function openCreatePostOverlay() {
+        createPostOverlay.style.display = 'flex';
+    }
+});
+
     </script>
 </body>
 </html>
