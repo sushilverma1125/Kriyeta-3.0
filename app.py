@@ -27,8 +27,15 @@ import pathlib
 import textwrap
 
 
+db = SQLAlchemy()
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = "my-secrets"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///video-meeting.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///form.db"
+db.init_app(app)
+login_manager = LoginManager()
+login_manager.login_view = "login"
+login_manager.init_app(app)
 @app.route("/")
 def index():
   return render_template("index.html")
