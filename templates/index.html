@@ -26,22 +26,23 @@
                 <div class="notification">
                     <img src="../static/images/notification-icon.png" alt="Notification Icon">
                 </div>
+                <label class="btn btn-warning">Logout</label>
             </div>
             <div class="create-post-overlay" id="create-post-overlay">
                 <div class="create-post">
                     <button class="close-button" id="closeButton">&times;</button>
                     <div class="header">
-                        <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                        <img src="/static/images/profile-1.jpg" alt="Profile Picture" class="profile-pic">
                         <div class="user-info">
                             <span class="username">Sushil Verma</span>
-                            <div class="audience-selector">
+                            <!-- <div class="audience-selector">
                                 <span class="audience">Friends</span>
                                 <div class="dropdown">
                                     <span>Friends</span>
                                     <span>Public</span>
                                     <span>Only Me</span>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <textarea placeholder="What's on your mind, Sushil?" class="post-input"></textarea>
@@ -53,11 +54,6 @@
                     <button class="post-button" disabled>Post</button>
                 </div>
             </div>
-            <!-- <div class="logout" style="background-color: red; border-radius: 50;">
-                <label class="btn btn-danger" for="log-out">Log out</label>
-            </div> -->
-            <button type="button" class="btn btn-danger" style="background-color: red;">Logout</button>
-
         </div>
     </nav>
 
@@ -81,15 +77,15 @@
                 <!----------------- SIDEBAR -------------------->
                 <div class="sidebar">
                     <a class="menu-item active" href="index.html">
-                        <span><i class="uil uil-home"></i></span>
+                        <span><i class="bi bi-house"></i></span>
                         <h3>Home</h3>   
                     </a>
                     <a class="menu-item" href="explore.html">
-                        <span><i class="uil uil-compass"></i></span>
+                        <span><i class="bi bi-search"></i></span>
                         <h3>Explore</h3>
                     </a> 
                     <a class="menu-item" id="messages-notifications">
-                        <span><i class="bi bi-heart-pulse-fill"></i></span>
+                        <span><i class="bi bi-heart-pulse"></i></span>
                         <h3>Medical</h3>
                     </a>
                     <a class="menu-item">
@@ -101,11 +97,11 @@
                         <h3>Find Job</h3>
                     </a>
                     <a class="menu-item" id="theme">
-                        <span><i class="uil uil-palette"></i></span>
+                        <span><i class="bi bi-palette"></i></span>
                         <h3>Theme</h3>
                     </a>
                     <a class="menu-item">
-                        <span><i class="bi bi-bookmark-heart"></i></span>
+                        <span><i class="bi bi-chat-left-text"></i></span>
                         <h3>Feedback</h3>
                     </a>
                 </div>
